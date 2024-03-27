@@ -1,0 +1,107 @@
+Agend
+1. Setup the github (code repository)
+	a. setup new environment
+	b. setup.py
+	c. requirement.txt
+
+1. open anaconda cmd prompt
+2. copy the path of project folder and gott the folder
+3. type code .  to open vs code
+4. Click on terminal menu and new terminal, and move to command prompt instead of shell
+5. Enter the command to make environment all packages will install in this environment folder.
+conda create -p venv python==3.12 -y
+6. to activate the virtual environment conda activate venv/
+7. next we will clone the github repository means we will sync with github.	
+for this purpoe we will run the commands avaiable at the time when we created in sequence, before this make sure git hould be installed on your machine.
+git init
+Add a new file with name README.md in VS Code, now we will add this file in github repository.
+git add README.md
+now we use commit command, before run the following command we have to set our email and user name in git config file by running following command
+git config --global user.email "qasjaved@gmail.com"
+	
+
+now run the commit command
+git commit -m "first commit"
+
+run the command git status to see the status 
+
+now run the command - git branch -M main
+
+now run the commad to sync with github - git remote add origin https://github.com/qaiserjaved/mlproject1.git
+
+after this if you run command - git remote -v to see i have synced with my own github repository
+
+now we will push this data in github repository using command - git push -u origin main   but before this you are doing it first time you have to set git global so
+search "git global" link Customizing git - git configuration
+
+and run following commands, i have done this with my own info
+$ git config --global user.name "qaiserjaved"
+$ git config --global user.email qasjaved@gmail.com
+
+you can see if you olne run command - git config --global user.email  -- you will see my email means my git repository is already synced
+now run the command - git push -u origin main
+
+Reload the github repository browser page from where you copied commands and you will see that your files are uploaded
+
+now in github i will create a new file .gitignore - the purpose of this file is that i want to tell some of the files i dont want to commit in repository.
+for .gitignore file i will select the template as python, automatically files should ignore already mentioned in this for example venv and other entries as well
+
+now to check at my own side i will run the cmnd - git pull after this .gitignore will add in my project local in vscode as well
+
+
+---we have done venv and sync with github 
+--- now we will setup.py and will see why this is important
+add 2 files setup.py and requirements.txt -- requirements file contains all packages need to install for my project.
+
+search on google "Python pypi" and open this site https://pypi.org/
+
+there are alot of libraries with many version you can search here any library and get pip install command for specific version e.g. for seaborn
+
+pip install seaborn  -- this is the command to install latest seaborn pacakge 
+
+Now the question is how this package is build here it comes setup.py, we use this file to make our machine learning project as a package later on we can install or deploy
+
+So if you search "python setup.py" and read from the links more we will discuss later
+
+With the help of setup.py I will be able to make my machine learning project as a package and even will be able to deploy this package in pypi.
+
+in setup.py file i used packages=find_packages() how it will know about packages I add a new folder name src.
+
+under the src folder we will create a files name __init__.py, whenever setup.py runs that will consider the path src->__init__.py to locate the required packages and 
+then it will build and then you can deploy it anywhere required.
+
+omy entire project development will be happening under this (src) folder.
+
+install_requires=['pandas','numpy','seaborn'] notice we are using list for libraries, these libs could be in 100s so this is not good practice we will make a function that
+most probably will use requirements.txt file and we will list down libraries in this file.
+
+After function code done. So I can directly install setup.py or wht i can do that I can whenever I am trying to install all this requirements.txt at that point of time 
+setup.py file should also run to build the packages so for enabling that we specifically write in requirements.txt "-e ." this will automatically trigger setup.py
+
+Now one thing need to be carefull that we add -e . in req.txt so it will come in setup.py file when func read the file so minor change in function.
+Notice before this command there is only one file __init__ under src folder
+After doing all this we will run a command in terminal pip install -r requirements.txt 
+this command auto install all packages mentioned in the req.txt file and because we mentioned -e . in the file so it will run setup.py file as well and will make
+a deployable package as well. After completing this command successfully, you will see one more flder with name mlproject1.egg-info with different files init.
+
+
+2. We have successfully created src nd package ND GENERIC PROJECT STRUCTURE AS WELL.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -82,10 +82,67 @@ Now one thing need to be carefull that we add -e . in req.txt so it will come in
 Notice before this command there is only one file __init__ under src folder
 After doing all this we will run a command in terminal pip install -r requirements.txt 
 this command auto install all packages mentioned in the req.txt file and because we mentioned -e . in the file so it will run setup.py file as well and will make
-a deployable package as well. After completing this command successfully, you will see one more flder with name mlproject1.egg-info with different files init.
+a deployable package as well. After completing this command successfully, you will see one more folder with name mlproject1.egg-info with different files init.
 
 
-2. We have successfully created src nd package ND GENERIC PROJECT STRUCTURE AS WELL.
+2. We have successfully created src and package aND GENERIC PROJECT STRUCTURE AS WELL.
+
+Now quickly run command git add .
+
+then run git status it will list the files going to commit
+
+then run git commit -m "My second commit"
+
+now run git push -u origin main
+
+------------
+Creating the entire project structure.
+
+Currently we will do every thing manually, later on we can automate by creating file template.py.
+
+We will create a flder components under src folder, and in this folder we will create a file __init__.py. Why this file because Components will be created as a package and it can also be exported like it can be imported 
+to some other file location that is the reason writing __init__.py file.
+
+Now this components are like all the modules that we are probably going to create right like initially we will create a process called as data ingestion. Data ingestion means I will be reading a data set from a database or it can 
+be from some other file location or can be from different kind of databases also.
+
+So first I will create my first module data_ingestion.py ---- reading database code will be in this file.
+
+After data reading/ingestion my next step could be data validation or data transformation, I will create data_transformation.py.
+
+After data transformation I will go for model training, so will create model_trainer.py.
+
+We can write model pusher also for the purpose model pickle file to cloud but we will do this later.
+
+-- Next we will create one more folder under src that is pipeline, because what kind of pipeline we need to create right that also you need to know right with respect to pipeline two pipeline I will decide one is the training 
+pipeline and second is the prediction pipeline. So we will create 2 .py files (train_pipeine.py and predict_pipelie.py) under the pipeline folder. These files will call the compenents modules.
+
+In pipeline folder I will create __init__.py file so that I can import these files.
+
+--Now under src folder I will create following 3 files:
+1. logger.py - for logging purpose
+2. exception.py - for exception handling purpose
+3. utils.py - for any other common functionalities.
+
+So we will start our code writing in exception.py file. Whenever you write code for exception, search on Google "exception python documentation". All the code is actually there.
+
+We are going to create our own custom exceptions. So first import sys library. What is sys library. Search on Google "sys library python". The sys module in Python provides various functions and variables that 
+are used to manipulate different parts of the Python runtime environment. 
+
+So any exception that is basically getting control the sys library will automatically have that information. You can also search in Google "Custom exception handling in python documentation.
+
+Now we will start the code for logger module.
+
+To check my logger is running I will run following command in terminal/cmnd
+python src/logger.py after running this command there will be a new folder logs and under this file new log files will be created.
+
+Similary we will check for exception module 
+python src/exception.py  --- upto this point custom exception will raise but will not logging at this point in next video we will log this custom eception.
+
+
+
+
+
 
 
 
